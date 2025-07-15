@@ -1,5 +1,5 @@
 FROM amazoncorretto:21-alpine
-ENV UNIFI_VERSION=9.1.120
+ENV UNIFI_VERSION=9.2.87
 
 RUN wget -qO- dl.ui.com/unifi/$UNIFI_VERSION/UniFi.unix.zip | unzip - && \
     mv /UniFi /usr/lib/unifi && \
