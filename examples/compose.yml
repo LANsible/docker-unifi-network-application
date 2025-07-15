@@ -1,0 +1,40 @@
+services:
+  volumes-provisioner:
+    image: hasnat/volumes-provisioner
+    environment:
+      PROVISION_DIRECTORIES: "1000:1000:0755:/data"
+    volumes:
+      - unifi:/data
+
+  mongodb:
+    image: 'bitnami/mongodb:4.4'  # later requires AVX instructions
+    # https://github.com/bitnami/containers/blob/main/bitnami/mongodb/README.md#environment-variables
+    environment:
+      MONGODB_ROOT_PASSWORD: test
+      # Don't use mongodb prefix these are just for the init script
+      MONGO_USER: unifi
+      MONGO_PASS: unifi
+      MONGO_DBNAME: unifi
+    volumes:
+      - 'mongodb:/bitnami'
+      - ./init.sh:/docker-entrypoint-initdb.d/init.sh
+
+  unifi:
+    build: ../.
+    environment:
+      MONGO_HOST: mongodb
+      MONGO_USER: unifi
+      MONGO_PASS: unifi
+      MONGO_DBNAME: unifi
+    ports:
+      - "8143:8443"
+    depends_on:
+      - mongodb
+      - volumes-provisioner
+    volumes:
+      - ./certificates/:/certificates/
+      - unifi:/data
+
+volumes:
+  mongodb:
+  unifi:
