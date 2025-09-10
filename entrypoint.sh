@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export MONGO_URI="mongodb://$MONGO_USER:$MONGO_PASS@$MONGO_HOST:${MONGO_PORT:-27017}/$MONGO_DBNAME?tls=${MONGO_TLS:-false}&authSource=${MONGO_AUTHSOURCE:-admin}"
-export MONGO_STAT_URI="mongodb://$MONGO_USER:$MONGO_PASS@$MONGO_HOST:${MONGO_PORT:-27017}/$MONGO_DBNAME_stat?tls=${MONGO_TLS:-false}&authSource=${MONGO_AUTHSOURCE:-admin}"
+export MONGO_URI="mongodb://$MONGO_USER:$MONGO_PASS@$MONGO_HOST:${MONGO_PORT:-27017}/$MONGO_DBNAME?tls=${MONGO_TLS:-false}\&authSource=${MONGO_AUTHSOURCE:-admin}"
+export MONGO_STAT_URI="mongodb://$MONGO_USER:$MONGO_PASS@$MONGO_HOST:${MONGO_PORT:-27017}/${MONGO_DBNAME}_stat?tls=${MONGO_TLS:-false}\&authSource=${MONGO_AUTHSOURCE:-admin}"
 
 # setup properties file when not existing (can't overwrite each time since unifi writes to this file at runtime)
 if [ ! -f "/data/system.properties" ]; then
