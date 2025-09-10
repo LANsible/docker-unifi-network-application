@@ -1,5 +1,6 @@
 FROM amazoncorretto:21-alpine
-ENV UNIFI_VERSION=9.3.43
+# https://community.ui.com/releases/
+ENV UNIFI_VERSION=9.4.19
 
 RUN wget -qO- dl.ui.com/unifi/$UNIFI_VERSION/UniFi.unix.zip | unzip - && \
     mv /UniFi /usr/lib/unifi && \
