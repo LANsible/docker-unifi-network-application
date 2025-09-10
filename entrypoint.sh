@@ -7,9 +7,9 @@ export MONGO_STAT_URI="mongodb://$MONGO_USER:$MONGO_PASS@$MONGO_HOST:${MONGO_POR
 if [ ! -f "/data/system.properties" ]; then
     envsubst < /usr/lib/unifi/system.properties.tpl > /data/system.properties
 else
-    sed -ie 's/^db.mongo.uri=.*/db.mongo.uri='"$MONGO_URI"'/g' /data/system.properties
-    sed -ie 's/^statdb.mongo.uri=.*/statdb.mongo.uri='"$MONGO_STAT_URI"'/g' /data/system.properties
-    sed -ie 's/^unifi.db.name=.*/unifi.db.name='"$MONGO_DBNAME"'/g' /data/system.properties
+    sed -i "s|^db.mongo.uri=.*|db.mongo.uri=$MONGO_URI|" /data/system.properties
+    sed -i "s|^statdb.mongo.uri=.*|statdb.mongo.uri=$MONGO_STAT_URI|" /data/system.properties
+    sed -i "s|^unifi.db.name=.*|unifi.db.name=$MONGO_DBNAME|" /data/system.properties
 fi
 
 # Import the additional certificate into JVM truststore
