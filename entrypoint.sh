@@ -9,7 +9,8 @@ if [ ! -f "/data/system.properties" ]; then
 else
     sed -i "s|^db.mongo.uri=.*|db.mongo.uri=$MONGO_URI|" /data/system.properties
     sed -i "s|^statdb.mongo.uri=.*|statdb.mongo.uri=$MONGO_STAT_URI|" /data/system.properties
-    sed -i "s|^unifi.db.name=.*|unifi.db.name=$MONGO_DBNAME|" /data/system.properties
+    sed -i "s|^uuid=.*|uuid=$UUID|" /data/system.properties
+    sed -i "s|^reporter-uuid=.*|reporter-uuid=$REPORTER_UUID|" /data/system.properties
 fi
 
 # Import the additional certificate into JVM truststore

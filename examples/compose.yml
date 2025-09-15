@@ -26,6 +26,8 @@ services:
       MONGO_USER: unifi
       MONGO_PASS: unifi
       MONGO_DBNAME: unifi
+      UUID: d2812277-4653-416c-88c9-e7b3eec0aa60
+      REPORTER_UUID: 08c3041c-b118-44c5-8b1e-6359340d7ff3
     ports:
       - "8143:8443"
     depends_on:
