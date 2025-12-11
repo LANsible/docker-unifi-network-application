@@ -1,5 +1,5 @@
 FROM amazoncorretto:21-alpine
-# https://community.ui.com/releases/
+# renovate: datasource=docker depName=unifi-network-application packageName=linuxserver/unifi-network-application
 ENV UNIFI_VERSION=10.0.160
 
 RUN wget -qO- dl.ui.com/unifi/$UNIFI_VERSION/UniFi.unix.zip | unzip - && \
