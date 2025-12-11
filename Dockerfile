@@ -1,6 +1,6 @@
 FROM amazoncorretto:21.0.9-alpine@sha256:801b86a5da334ca9dfa60008e6e1171cf364ca6e81061fa161c681721c1c7018
 # renovate: datasource=docker depName=unifi-network-application packageName=linuxserver/unifi-network-application
-ENV UNIFI_VERSION=10.0.160
+ENV UNIFI_VERSION=10.0.162
 
 RUN wget -qO- dl.ui.com/unifi/$UNIFI_VERSION/UniFi.unix.zip | unzip - && \
     mv /UniFi /usr/lib/unifi && \
