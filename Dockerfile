@@ -1,4 +1,4 @@
-FROM amazoncorretto:21.0.9-alpine@sha256:801b86a5da334ca9dfa60008e6e1171cf364ca6e81061fa161c681721c1c7018
+FROM amazoncorretto:21.0.10-alpine@sha256:c64034bdceaff59b33bc366b9ab1b7fc5593d8155daf82cd978541b206555d1f
 # renovate: datasource=docker depName=unifi-network-application packageName=linuxserver/unifi-network-application
 ENV UNIFI_VERSION=10.1.85
 
